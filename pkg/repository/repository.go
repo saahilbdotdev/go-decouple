@@ -14,7 +14,7 @@ import (
 type Repository interface {
 	Init(string) error
 	HasItem(string) bool
-	GetItem(string) any
+	GetItem(string) string
 }
 
 type RepositoryINI struct {
