@@ -1,4 +1,4 @@
-# go-decouple (v0.1.0-beta1)
+# go-decouple (v0.1.0-alpha1)
 
 Go decouple your settings from your application!
 
