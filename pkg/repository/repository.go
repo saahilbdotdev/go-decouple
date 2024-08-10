@@ -47,11 +47,11 @@ func (repo *RepositoryINI) GetItem(key string) string {
 }
 
 type RepositoryEnv struct {
-	Data map[string]interface{}
+	Data map[string]string
 }
 
 func (repo *RepositoryEnv) Init(source string) error {
-	repo.Data = make(map[string]interface{})
+	repo.Data = make(map[string]string)
 
 	file, err := os.Open(source)
 	if err != nil {
@@ -104,10 +104,32 @@ func (repo *RepositoryEnv) HasItem(key string) bool {
 	return exists
 }
 
-func (repo *RepositoryEnv) GetItem(key string) any {
-	if _, ok := repo.Data[key]; ok {
+func (repo *RepositoryEnv) GetItem(key string) string {
+	if repo.HasItem(key) {
 		return repo.Data[key]
 	}
 
-	return nil
+	return ""
+}
+
+func NewEnv(source string) *RepositoryEnv {
+	repository := new(RepositoryEnv)
+
+	err := repository.Init(source)
+	if err != nil {
+		panic(err)
+	}
+
+	return repository
+}
+
+func NewINI(source string) *RepositoryINI {
+	repository := new(RepositoryINI)
+
+	err := repository.Init(source)
+	if err != nil {
+		panic(err)
+	}
+
+	return repository
 }
