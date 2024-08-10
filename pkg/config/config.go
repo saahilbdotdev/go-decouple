@@ -1,7 +1,6 @@
 package config
 
 import (
-	"fmt"
 	"os"
 	"path/filepath"
 	"reflect"
@@ -26,9 +25,7 @@ func (c *Config) CastBoolean(value string) bool {
 
 	boolValue, err := utils.StringToBool(value)
 	if err != nil {
-		fmt.Println(err)
-
-		os.Exit(1)
+		panic(err)
 	}
 
 	return boolValue
