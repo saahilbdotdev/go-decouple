@@ -7,7 +7,7 @@ This project is a Go fork of the Python project [python-decouple](https://github
 ## Installation
 
 ```bash
-go get github.com/saahilbdotdev/go-decouple
+go get github.com/saahilbdotdev/go-decouple@v0.1.0-alpha1
 ```
 
 ## Usage
